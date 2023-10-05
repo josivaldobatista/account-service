@@ -1,6 +1,7 @@
 package com.jfb.accountservice.entity;
 
 import jakarta.persistence.*;
+import jdk.jfr.BooleanFlag;
 import lombok.Data;
 
 @Data
@@ -11,7 +12,7 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "account_name", nullable = false, unique = true)
+    @Column(name = "account_number", nullable = false, unique = true)
     private String accountNumber;
 
     @Column(nullable = false, unique = true, length = 11)
@@ -21,5 +22,6 @@ public class Customer {
     private String fullName;
 
     @Column(nullable = false)
+    @BooleanFlag
     private Boolean enable;
 }
