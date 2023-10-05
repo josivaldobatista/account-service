@@ -1,10 +1,12 @@
+server:
+  port: 8000
 spring:
   application:
     name: account-service
   datasource:
-    url: jdbc:mysql://localhost:3306/account_db?createDatabaseIfNotExist=true&useTimezone=true&serverTimezone=UTC
-    username: root
-    password: senha432
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/account_db?createDatabaseIfNotExist=true&useTimezone=true&serverTimezone=UTC
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:root}
     drive-class-name: com.mysql.cj.jdbc.Drive
   jpa:
     hibernate:
@@ -12,7 +14,7 @@ spring:
     show-sql: true
     properties:
       hibernate:
+        format_sql: true
         dialect: org.hibernate.dialect.MySQL8Dialect
+        show_sql: true
 
-server:
-  port: 8000
